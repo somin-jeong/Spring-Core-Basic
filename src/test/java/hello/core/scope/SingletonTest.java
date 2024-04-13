@@ -12,7 +12,9 @@ public class SingletonTest {
     @Test
     public void singletonBeanFind() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SingletonBean.class);
+        System.out.println("find prototypeBean1");
         SingletonBean singletonBean1 = ac.getBean(SingletonBean.class);
+        System.out.println("find prototypeBean2");
         SingletonBean singletonBean2 = ac.getBean(SingletonBean.class);
 
         System.out.println("singletonBean1 = " + singletonBean1);
@@ -21,6 +23,7 @@ public class SingletonTest {
 
         ac.close(); //종료
     }
+
     @Scope("singleton")
     static class SingletonBean {
         @PostConstruct
